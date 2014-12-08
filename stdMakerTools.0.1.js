@@ -1,9 +1,10 @@
 /*******************************************************************************
- * Classe Js toolsBox pour Studio Maker
+ * Classe Js pour palette de couleur pour Studio Maker
  *
- * @author : LECOMTE Cyril <cyrhades76@gmail.com>
- * @since: 06/12/2014
- * @package : studioMaker
+ * @author  LECOMTE Cyril <cyrhades76@gmail.com>
+ * @version 08/12/2014
+ * @since 06/12/2014
+ * @package studioMaker
  *******************************************************************************/
 var stdMakerToolsBox = function() {
 	this.preg_match_all = function(regex, haystack) {
