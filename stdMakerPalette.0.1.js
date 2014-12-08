@@ -2,7 +2,7 @@
  * Classe Js pour palette de couleur pour Studio Maker
  *
  * @author : LECOMTE Cyril <cyrhades76@gmail.com>
- * @since: 06/12/2014
+ * @since: 08/12/2014
  * @package : studioMaker
  *******************************************************************************/
 var stdMakerPalette = function() {
@@ -18,12 +18,12 @@ var stdMakerPalette = function() {
 		oTools = new stdMakerToolsBox();
 		// On crée un tableau 
 		var tColors = oTools.preg_match_all(
-			/([A-Z]{1,2})([0-9]{1,3},[0-9]{1,3},[0-9]{1,3})/g,
+			/([A-Z]{1,2})([0-9]{1,3},[0-9]{1,3},[0-9]{1,3}|_)/g,
 			palette
 		);
-		//console.log(tColors);
-		//this.colors[key] = value;
-		//console.log(this.colors);
+		for(k in tColors) {
+			this.colors[tColors[k][0]] = tColors[k][1];
+		}
 		return this.colors;
 	};
 	
@@ -31,14 +31,14 @@ var stdMakerPalette = function() {
 	this.wriePalette = function(colors) {
 		if (typeof colors !== 'object') {
 			return false;
-		}
+		}	
 		this.palette = '';
 		var nbColors = colors.length;
 		// On vérifie qu'on a recu des couleurs
 		if (nbColors > 0) {
 			var i = 0;
 			// On boucle pour créer notre palette compatible Studio Maker
-			for( l in this.letters ) {
+			for( var l in this.letters ) {
 				this.palette += this.letters[l]+colors[i];
 				i++;
 				// Si on a fini
@@ -49,10 +49,10 @@ var stdMakerPalette = function() {
 			// Si la premiere boucle n'a pas suffit
 			if (i < nbColors) {
 				// On boucle
-				first: for( l in this.letters ) {
-					second : for( j in this.letters ) {
+				first: for( var l in this.letters ) {
+					second : for( var j in this.letters ) {
 						this.palette += this.letters[l]+
-						this.letters[j]+colors[i];
+								this.letters[j]+colors[i];
 						i++;
 						// Si on a fini
 						if (i >= nbColors) {
