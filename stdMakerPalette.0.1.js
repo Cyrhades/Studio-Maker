@@ -8,7 +8,7 @@
 var stdMakerPalette = function() {
 	// letters
 	this.letters = ['A','B','C','E','F','G','H','I','J','K','L','M','N',
-					'O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+			'O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 	// read palette
 	this.readPalette = function(palette) {
 		if (typeof palette !== 'string') {
