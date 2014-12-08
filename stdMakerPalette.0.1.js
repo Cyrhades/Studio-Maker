@@ -52,7 +52,7 @@ var stdMakerPalette = function() {
 				first: for( l in this.letters ) {
 					second : for( j in this.letters ) {
 						this.palette += this.letters[l]+
-										this.letters[j]+colors[i];
+						this.letters[j]+colors[i];
 						i++;
 						// Si on a fini
 						if (i >= nbColors) {
