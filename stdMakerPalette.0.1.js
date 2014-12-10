@@ -36,30 +36,24 @@ var stdMakerPalette = function() {
 		var nbColors = colors.length;
 		// On vérifie qu'on a recu des couleurs
 		if (nbColors > 0) {
-			var i = 0;
-			// On boucle pour créer notre palette compatible Studio Maker
-			for( var l in this.letters ) {
-				this.palette += this.letters[l]+colors[i];
-				i++;
-				// Si on a fini
-				if (i >= nbColors) {
-					break;
+			// FONCTION GENERATRICE
+			function *colorsName(letters) {
+				nbLetters = letters.length;
+				for (var i = 0; i < nbLetters; i++) {
+					sCrurrentLetter = letters[i];
+					yield sCrurrentLetter;
 				}
-			}
-			// Si la premiere boucle n'a pas suffit
-			if (i < nbColors) {
-				// On boucle
-				first: for( var l in this.letters ) {
-					second : for( var j in this.letters ) {
-						this.palette += this.letters[l]+
-								this.letters[j]+colors[i];
-						i++;
-						// Si on a fini
-						if (i >= nbColors) {
-							break first;
-						}
+				for (var i = 0; i < nbLetters; i++) {
+					for (var j = 0; j < nbLetters; j++) {
+						sCrurrentLetter = letters[i]+letters[j];
+						yield sCrurrentLetter;
 					}
 				}
+			}
+			//--
+			var iterator = colorsName(this.letters);
+			for (n in colors) {
+				this.palette += iterator.next().value+colors[n];
 			}
 		}
 		return this.palette;
