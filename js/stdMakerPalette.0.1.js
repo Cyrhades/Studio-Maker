@@ -28,7 +28,7 @@ var stdMakerPalette = function() {
 	};
 	
 	// write palette
-	this.wriePalette = function(colors) {
+	this.writePalette = function(colors) {
 		if (typeof colors !== 'object') {
 			return false;
 		}	
