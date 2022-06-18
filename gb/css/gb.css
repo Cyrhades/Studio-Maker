@@ -1,0 +1,7 @@
+#gameboy-tiles{margin:0; padding:0; width:80px; height:80px;}
+.row-tiles{margin:0; padding:0; display:block; width:80px; line-height:1px;}
+.pixel{margin:0;padding:0;display:inline-block; width: 10px; height:10px;}
+.pixel-0{background-color:#e0f8d0;}
+.pixel-1{background-color:#88c070;}
+.pixel-2{background-color:#346856;}
+.pixel-3{background-color:#081820;}
